@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PageContainer } from "@/components/layout/page-container";
+import { PageWrapper } from "@/components/layout/page-wrapper";
 import { PageHeader } from "@/components/ui/page-header";
 
 export const metadata: Metadata = {
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <PageContainer>
+    <PageWrapper>
       <PageHeader title="About" />
-    </PageContainer>
+    </PageWrapper>
   );
 }

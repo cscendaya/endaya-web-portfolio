@@ -1,34 +1,28 @@
 import Link from "next/link";
 
-import { NavLink } from "@/components/layout/nav-link";
+import { MainNav } from "@/components/layout/main-nav";
+import { MobileNav } from "@/components/layout/mobile-nav";
 import { PageContainer } from "@/components/layout/page-container";
-import { NAV_ITEMS } from "@/lib/constants/navigation";
 import { SITE_NAME } from "@/lib/constants/site";
 
 /**
- * Global navigation (NAV-001). Placeholder structure for PH7.1: destinations and
- * order are final; presentation is refined in later phases.
+ * Global header (NAV-001): brand, global navigation, and the mobile disclosure.
+ * `relative` positions the mobile panel directly beneath the header bar. Not
+ * sticky — the Design System does not define sticky behaviour for Version 1.
  */
 export function SiteHeader() {
   return (
-    <header className="border-b border-border-subtle bg-background">
-      <PageContainer className="flex flex-wrap items-center justify-between gap-x-8 gap-y-2 py-4">
+    <header className="relative border-b border-border-subtle bg-background">
+      <PageContainer className="flex items-center justify-between gap-x-8 py-4">
         <Link
           href="/"
-          className="text-sm font-medium text-text-primary"
+          className="rounded-(--radius-token-sm) text-sm font-medium text-text-primary"
           aria-label={`${SITE_NAME} — home`}
         >
           {SITE_NAME}
         </Link>
-        <nav aria-label="Primary">
-          <ul className="flex flex-wrap items-center gap-x-6">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.href}>
-                <NavLink href={item.href} label={item.label} />
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <MainNav />
+        <MobileNav />
       </PageContainer>
     </header>
   );

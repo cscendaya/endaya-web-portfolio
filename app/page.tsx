@@ -1,10 +1,10 @@
-import { PageContainer } from "@/components/layout/page-container";
+import { PageWrapper } from "@/components/layout/page-wrapper";
 import { PageHeader } from "@/components/ui/page-header";
 
 export default function HomePage() {
   return (
-    <PageContainer>
+    <PageWrapper>
       <PageHeader title="Home" />
-    </PageContainer>
+    </PageWrapper>
   );
 }
