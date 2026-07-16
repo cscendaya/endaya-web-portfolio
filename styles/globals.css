@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/*
+  Design tokens for Version 1.
+  Values implement 04_DESIGN_SYSTEM.md: restrained neutral foundation, colour as
+  functional support rather than decoration, light theme only.
+*/
+@theme {
+  /* Breakpoints — mobile-first, shared by every page. */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+
+  /* Content width — readability over screen utilisation. */
+  --container-content: 64rem;
+  --container-prose: 42rem;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Colour roles */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-border-subtle: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-accent-primary: #1d4ed8;
+  --color-accent-primary-hover: #1e40af;
+  --color-accent-secondary: #0f766e;
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-error: #b91c1c;
+
+  /* Radius */
+  --radius-token-sm: 0.25rem;
+  --radius-token-md: 0.5rem;
+  --radius-token-lg: 0.75rem;
+
+  /* Shadows — used sparingly, structure comes from spacing and borders. */
+  --shadow-token-sm: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+  --shadow-token-md: 0 1px 3px 0 rgb(15 23 42 / 0.08);
+
+  /* Section rhythm — predictable vertical spacing between sections. */
+  --spacing-section: 4rem;
+  --spacing-section-lg: 6rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Visible focus for every interactive element, per accessibility rules. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
