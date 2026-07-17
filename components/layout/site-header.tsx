@@ -8,12 +8,13 @@ import { SITE_NAME } from "@/lib/constants/site";
 
 /**
  * Global header (NAV-001): brand, global navigation, and the mobile disclosure.
- * `relative` positions the mobile panel directly beneath the header bar. Not
- * sticky — the Design System does not define sticky behaviour for Version 1.
+ * `sticky top-0` keeps navigation persistently visible on scroll and, being a
+ * positioned value, still anchors the mobile panel directly beneath the bar.
+ * Translucent + backdrop-blur where supported, opaque fallback otherwise.
  */
 export function SiteHeader() {
   return (
-    <header className="relative border-b border-border-subtle bg-background">
+    <header className="sticky top-0 z-40 border-b border-border-subtle bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <PageContainer className="flex items-center justify-between gap-x-8 py-4">
         <Link
           href="/"
