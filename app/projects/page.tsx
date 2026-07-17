@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { ProjectListing } from "@/components/projects/project-listing";
 import { PageWrapper } from "@/components/layout/page-wrapper";
+import { ProjectListing } from "@/components/projects/project-listing";
 import { CtaSection } from "@/components/ui/cta-section";
 import { PageHeader } from "@/components/ui/page-header";
 import { PROJECTS_CTA, PROJECTS_HEADER } from "@/lib/constants/projects";

@@ -11,7 +11,7 @@ import { SITE_NAME } from "@/lib/constants/site";
  */
 export function SiteFooter() {
   return (
-    <footer className="mt-(--spacing-section) border-t border-border-subtle bg-surface">
+    <footer className="border-t border-border-subtle bg-surface">
       <PageContainer className="flex flex-col gap-8 py-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <nav aria-label="Footer">
@@ -20,7 +20,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-(--radius-token-sm) text-sm text-text-secondary transition-colors hover:text-text-primary"
+                    className="inline-block rounded-(--radius-token-sm) py-1 text-sm text-text-secondary transition-colors hover:text-text-primary"
                   >
                     {item.label}
                   </Link>
@@ -33,7 +33,7 @@ export function SiteFooter() {
               <li key={profile.label}>
                 <a
                   href={profile.href}
-                  className="rounded-(--radius-token-sm) text-sm text-text-secondary transition-colors hover:text-text-primary"
+                  className="inline-block rounded-(--radius-token-sm) py-1 text-sm text-text-secondary transition-colors hover:text-text-primary"
                 >
                   {profile.label}
                 </a>

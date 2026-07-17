@@ -16,7 +16,7 @@ export function SiteHeader() {
       <PageContainer className="flex items-center justify-between gap-x-8 py-4">
         <Link
           href="/"
-          className="rounded-(--radius-token-sm) text-sm font-medium text-text-primary"
+          className="inline-block rounded-(--radius-token-sm) py-2 text-sm font-medium text-text-primary"
           aria-label={`${SITE_NAME} — home`}
         >
           {SITE_NAME}

@@ -1,5 +1,5 @@
-import { SkillCategoryCard } from "@/components/skills/skill-category-card";
 import { Section } from "@/components/layout/section";
+import { SkillCategoryCard } from "@/components/skills/skill-category-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { SectionHeader } from "@/components/ui/section-header";
 import {

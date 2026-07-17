@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
+import { PageWrapper } from "@/components/layout/page-wrapper";
 import { SkillCategories } from "@/components/skills/skill-categories";
 import { SkillsOverview } from "@/components/skills/skills-overview";
 import { TechnologyOverview } from "@/components/skills/technology-overview";
-import { PageWrapper } from "@/components/layout/page-wrapper";
 import { PageHeader } from "@/components/ui/page-header";
 import { SKILLS_HEADER } from "@/lib/constants/skills";
 

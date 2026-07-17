@@ -1,6 +1,6 @@
 import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { EmptyState } from "@/components/ui/empty-state";
 import { SectionHeader } from "@/components/ui/section-header";
 import { HOME_SKILLS_PREVIEW } from "@/lib/constants/home";
 
@@ -23,11 +23,7 @@ export function SkillsPreview() {
           </Button>
         }
       />
-      <Card>
-        <p className="max-w-(--container-prose) text-base text-text-secondary">
-          {HOME_SKILLS_PREVIEW.emptyState}
-        </p>
-      </Card>
+      <EmptyState message={HOME_SKILLS_PREVIEW.emptyState} />
     </Section>
   );
 }

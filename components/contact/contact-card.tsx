@@ -1,6 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ExternalLink } from "@/components/ui/external-link";
-import { Button } from "@/components/ui/button";
 import type { ContactMethod } from "@/types";
 
 /**

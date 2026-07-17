@@ -1,5 +1,5 @@
-import { ProjectsGrid } from "@/components/projects/projects-grid";
 import { Section } from "@/components/layout/section";
+import { ProjectsGrid } from "@/components/projects/projects-grid";
 import { EmptyState } from "@/components/ui/empty-state";
 import { SectionHeader } from "@/components/ui/section-header";
 import { PROJECTS, PROJECTS_LISTING } from "@/lib/constants/projects";

@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="flex min-h-full flex-col">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:rounded-(--radius-token-sm) focus:bg-background focus:px-3 focus:py-2 focus:text-sm"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-(--radius-token-sm) focus:border focus:border-border-subtle focus:bg-background focus:px-3 focus:py-2 focus:text-sm focus:shadow-(--shadow-token-md)"
         >
           Skip to main content
         </a>
