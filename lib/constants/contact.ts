@@ -2,30 +2,30 @@ import { Briefcase, GitBranch, Mail } from "lucide-react";
 
 import type { AvailabilityItem, ContactMethod } from "@/types";
 
+/** The approved destinations, shared with the footer so the two cannot drift. */
+export const CONTACT_EMAIL = "carlieendaya@gmail.com";
+export const GITHUB_URL = "https://github.com/cscendaya";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/carlie-shaye-endaya";
+
 /**
- * Contact page copy and contact records. No contact detail is invented here: the
- * approved channels are fixed by FR-CONTACT-001/002/003, but their destinations
- * stay unset until the real values are supplied during the content phase, the
- * same way the footer profiles do. The page reads entirely from this file, so
- * nothing about the UI changes when the real destinations arrive.
+ * Contact page copy and contact records. The page reads entirely from this file,
+ * so a changed destination is a one-line edit here.
  */
 export const CONTACT_HEADER = {
   title: "Contact",
   description:
-    "[Short introductory description — one or two sentences framing how to reach the author and what kind of message is welcome.]",
+    "Open to internship opportunities, academic collaborations, and conversations about backend development, cybersecurity, and systems engineering. Every channel below reaches me directly.",
 } as const;
 
 export const CONTACT_INTRODUCTION = {
   title: "Get in touch",
-  description:
-    "[Supporting description — one sentence framing the channels below.]",
-  body: "[Introduction copy — two or three sentences encouraging professional communication, stating that messages are read directly and that every channel below reaches the author.]",
+  description: "Where to start, depending on what you need.",
+  body: "Internship opportunities, academic collaborations, or a discussion about backend development, cybersecurity, and systems engineering — I'd like to hear about it. Email is the most direct route and I read every message myself. GitHub and LinkedIn work just as well if you'd rather look at the work or the background first.",
 } as const;
 
 export const CONTACT_METHODS_SECTION = {
   title: "Ways to reach me",
-  description:
-    "[Supporting description — one sentence framing the approved communication channels.]",
+  description: "Three channels, all monitored.",
   /** Rendered when CONTACT_METHODS is empty; matches the other page sections. */
   emptyState:
     "Contact methods have not been added yet. Approved communication channels will be presented here using the shared contact card.",
@@ -42,9 +42,9 @@ export const CONTACT_METHODS: ContactMethod[] = [
     title: "Email",
     icon: Mail,
     description:
-      "[Supporting description — one sentence saying what email is best used for.]",
-    linkLabel: "[Email address placeholder]",
-    href: "#",
+      "Best for opportunities, project enquiries, and anything that needs a real reply.",
+    linkLabel: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
     external: false,
   },
   {
@@ -54,9 +54,9 @@ export const CONTACT_METHODS: ContactMethod[] = [
     // describes what it holds. Decorative either way: the title names the channel.
     icon: GitBranch,
     description:
-      "[Supporting description — one sentence saying what the GitHub profile shows.]",
+      "Source code for my projects, including this portfolio, and what I'm currently building.",
     linkLabel: "Open GitHub profile",
-    href: "#",
+    href: GITHUB_URL,
     external: true,
   },
   {
@@ -64,61 +64,49 @@ export const CONTACT_METHODS: ContactMethod[] = [
     title: "LinkedIn",
     icon: Briefcase,
     description:
-      "[Supporting description — one sentence saying what the LinkedIn profile shows.]",
+      "Academic background, specialization, and the professional side of my work.",
     linkLabel: "Open LinkedIn profile",
-    href: "#",
+    href: LINKEDIN_URL,
     external: true,
   },
 ];
 
 export const AVAILABILITY_SECTION = {
   title: "Availability",
-  description:
-    "[Supporting description — one sentence framing the kinds of work currently of interest.]",
+  description: "What I'm currently open to.",
   emptyState:
     "Availability details have not been added yet. Current openness to opportunities, collaboration, freelance, and employment will be presented here.",
 } as const;
 
-/**
- * Placeholder framing only. Each entry names a kind of work the author may be
- * open to; the descriptions are supplied during the content phase rather than
- * asserted here, since availability is a claim only the author can make.
- */
+/** Each entry states an openness the author has confirmed; nothing is implied. */
 export const AVAILABILITY_ITEMS: AvailabilityItem[] = [
   {
     id: "opportunities",
-    title: "Opportunities",
+    title: "Internships",
     description:
-      "[Availability copy — one sentence stating current openness to new opportunities.]",
+      "Open to internship opportunities in backend development and cybersecurity.",
   },
   {
     id: "collaboration",
-    title: "Collaboration",
+    title: "Academic collaboration",
     description:
-      "[Availability copy — one sentence stating current openness to collaboration on projects.]",
+      "Open to academic projects where I can contribute backend, database, or security work.",
   },
   {
-    id: "freelance",
-    title: "Freelance",
+    id: "engineering-discussions",
+    title: "Engineering discussions",
     description:
-      "[Availability copy — one sentence stating current openness to freelance work.]",
-  },
-  {
-    id: "employment",
-    title: "Employment",
-    description:
-      "[Availability copy — one sentence stating current openness to employment.]",
+      "Happy to talk about backend development, cybersecurity, and systems engineering — including the decisions behind the projects here.",
   },
 ];
 
 /**
  * The closing action points back to the methods above rather than to a single
- * channel, so the page reinforces contact without preferring a destination that
- * has not been provided yet.
+ * channel, so the page reinforces contact without preferring one destination.
  */
 export const CONTACT_CTA = {
-  title: "[Closing title — a short line reinforcing professional contact.]",
+  title: "Let's talk",
   description:
-    "[Supporting description — one sentence encouraging visitors to reach out.]",
+    "A short message is enough to start — tell me what you're working on and I'll reply.",
   action: { label: "View ways to reach me", href: "#contact-methods" },
 } as const;

@@ -11,6 +11,8 @@ import { ABOUT_CTA, ABOUT_HEADER } from "@/lib/constants/about";
 
 export const metadata: Metadata = {
   title: "About",
+  description: ABOUT_HEADER.description,
+  openGraph: { title: "About", description: ABOUT_HEADER.description },
 };
 
 /**
