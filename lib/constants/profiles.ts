@@ -5,12 +5,9 @@ import {
 } from "@/lib/constants/contact";
 import type { ExternalProfile } from "@/types";
 
-/**
- * Footer contact links. Destinations come from the contact constants rather than
- * being repeated, so the footer and the Contact page cannot drift apart.
- */
+/** Footer contact destinations, sourced from the author's CV. */
 export const EXTERNAL_PROFILES: ExternalProfile[] = [
-  { label: "GitHub", href: GITHUB_URL },
-  { label: "LinkedIn", href: LINKEDIN_URL },
-  { label: "Email", href: `mailto:${CONTACT_EMAIL}` },
+  { label: "GitHub", href: "https://github.com/cscendaya" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/carlie-shaye-endaya" },
+  { label: "Email", href: "mailto:carlieshaye.endaya@gmail.com" },
 ];
