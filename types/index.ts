@@ -88,3 +88,32 @@ export interface Project {
   demo?: ProjectResource;
   screenshot?: ProjectScreenshotAsset;
 }
+
+/**
+ * One approved way to reach the author (FR-CONTACT-001/002/003). The link label
+ * is descriptive text rather than an aria-label, so the accessible name is the
+ * visible one; `external` records whether the destination leaves the portfolio,
+ * which decides how the link is presented (FR-CONTACT-004).
+ */
+export interface ContactMethod {
+  /** Stable identity for keys and the card's heading id. */
+  id: string;
+  /** The channel's name, e.g. "Email". Rendered as the card heading. */
+  title: string;
+  /** Decorative mark beside the title; the title always carries the meaning. */
+  icon: LucideIcon;
+  /** One line saying what this channel is for. */
+  description: string;
+  /** Reads as an instruction, e.g. "Open GitHub profile". Names the link. */
+  linkLabel: string;
+  href: string;
+  /** True for destinations outside the portfolio, which open in a new tab. */
+  external: boolean;
+}
+
+/** One line of availability context. Never a commitment the author has not made. */
+export interface AvailabilityItem {
+  id: string;
+  title: string;
+  description: string;
+}
