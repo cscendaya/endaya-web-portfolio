@@ -138,8 +138,7 @@ export function MobileNav() {
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <NavLink
-                  href={item.href}
-                  label={item.label}
+                  {...item}
                   onNavigate={() => setIsOpen(false)}
                   className="block py-3"
                 />

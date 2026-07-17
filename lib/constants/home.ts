@@ -9,8 +9,11 @@ export const HOME_HERO = {
   role: "[Role or Title]",
   introduction:
     "[Short professional introduction — two or three sentences establishing engineering focus, the kind of work presented here, and current direction.]",
+  /**
+   * The hero's second action is the résumé download, which names itself from
+   * `RESUME` rather than from here — one file name, one label, one place.
+   */
   primaryAction: { label: "View projects", href: "/projects" },
-  secondaryAction: { label: "Get in touch", href: "/contact" },
 } as const;
 
 export const HOME_SUMMARY = {
