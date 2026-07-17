@@ -1,14 +1,13 @@
 /**
- * Home page placeholder copy. Every value below is an implementation placeholder
- * written in brackets so it can never be mistaken for approved content; real
- * copy is supplied during the content phase. Kept here rather than inline so the
- * replacement is a single, obvious edit.
+ * Home page copy. Kept here rather than inline so the page reads entirely from
+ * data and copy revisions stay a single, obvious edit.
  */
 export const HOME_HERO = {
-  name: "[Your Name]",
-  role: "[Role or Title]",
+  greeting: "Hello, I'm",
+  name: "Carlie Shaye C. Endaya",
+  role: "IT Student specializing in Cybersecurity",
   introduction:
-    "[Short professional introduction — two or three sentences establishing engineering focus, the kind of work presented here, and current direction.]",
+    "I build systems that connect software, hardware, and data into practical solutions. My interests span backend architecture, cybersecurity, and system design, with a long-term goal of becoming a Data/Systems Engineer focused on secure and scalable infrastructure.",
   /**
    * The hero's second action is the résumé download, which names itself from
    * `RESUME` rather than from here — one file name, one label, one place.
@@ -17,21 +16,21 @@ export const HOME_HERO = {
 } as const;
 
 export const HOME_SUMMARY = {
-  title: "Professional summary",
-  description:
-    "[Supporting description — one sentence framing the summary points below.]",
+  title: "How I think",
+  description: "The approach I bring to the systems I work on.",
   points: [
-    "[Summary point — engineering background.]",
-    "[Summary point — primary areas of technical work.]",
-    "[Summary point — how projects are approached and delivered.]",
-    "[Summary point — current focus or direction.]",
+    "I understand the problem before I design anything for it.",
+    "I design systems meant to be maintained, not only finished.",
+    "I build backend architecture around reliability, and database structures around clarity.",
+    "I integrate software, hardware, and data as one system rather than separate parts.",
+    "I treat security as part of development rather than a step at the end.",
   ],
 } as const;
 
 export const HOME_FEATURED_PROJECTS = {
   title: "Featured projects",
   description:
-    "[Supporting description — one sentence framing the selected projects.]",
+    "Selected academic work showing how I design and build systems end to end.",
   /** Rendered until approved project content exists; no projects are invented. */
   emptyState:
     "Featured project content has not been added yet. Approved projects will be presented here using the shared project card.",
@@ -41,7 +40,7 @@ export const HOME_FEATURED_PROJECTS = {
 export const HOME_SKILLS_PREVIEW = {
   title: "Skills",
   description:
-    "[Supporting description — one sentence framing the competency groups.]",
+    "The technologies I have worked with, grouped by the area they belong to.",
   /** Rendered until approved skill content exists; no skills are invented. */
   emptyState:
     "Skill content has not been added yet. Approved competency groups will be presented here.",
@@ -51,6 +50,6 @@ export const HOME_SKILLS_PREVIEW = {
 export const HOME_CTA = {
   title: "Get in touch",
   description:
-    "[Supporting description — one sentence inviting professional contact.]",
+    "Open to internships, collaboration, and backend or cybersecurity projects — I read every message myself.",
   action: { label: "Contact", href: "/contact" },
 } as const;

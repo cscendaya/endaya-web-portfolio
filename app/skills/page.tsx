@@ -9,6 +9,8 @@ import { SKILLS_HEADER } from "@/lib/constants/skills";
 
 export const metadata: Metadata = {
   title: "Skills",
+  description: SKILLS_HEADER.description,
+  openGraph: { title: "Skills", description: SKILLS_HEADER.description },
 };
 
 /**
