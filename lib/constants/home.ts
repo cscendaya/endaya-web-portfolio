@@ -20,8 +20,6 @@ export const HOME_SUMMARY = {
   description: "The approach I bring to the systems I work on.",
   points: [
     "I understand the problem before I design anything for it.",
-    "I design systems meant to be maintained, not only finished.",
-    "I build backend architecture around reliability, and database structures around clarity.",
     "I integrate software, hardware, and data as one system rather than separate parts.",
     "I treat security as part of development rather than a step at the end.",
   ],
@@ -30,8 +28,8 @@ export const HOME_SUMMARY = {
 export const HOME_FEATURED_PROJECTS = {
   title: "Featured projects",
   description:
-    "Selected academic work showing how I design and build systems end to end.",
-  /** Rendered until approved project content exists; no projects are invented. */
+    "Selected work, led by the capstone: a Wi-Fi security assessment platform built on a Raspberry Pi probe and a secure web application.",
+  /** Rendered only if no project is marked featured. */
   emptyState:
     "Featured project content has not been added yet. Approved projects will be presented here using the shared project card.",
   action: { label: "View all projects", href: "/projects" },

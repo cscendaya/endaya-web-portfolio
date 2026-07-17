@@ -16,6 +16,8 @@ const FEATURED_PROJECTS = PROJECTS.filter((project) => project.featured);
  * Projects page so neither can present a project differently. Falls back to the
  * shared empty state when no project is featured.
  */
+const featuredProjects = PROJECTS.filter((project) => project.featured);
+
 export function FeaturedProjectsPreview() {
   return (
     <Section id="featured-projects" labelledBy={HEADING_ID}>

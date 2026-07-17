@@ -15,6 +15,8 @@ const PREVIEW_CATEGORIES = SKILL_CATEGORIES.slice(0, 4);
  * Preview of the competency groups covered in full on the Skills page, rendered
  * through the same card so the two cannot describe a group differently.
  */
+const previewCategories = SKILL_CATEGORIES.slice(0, PREVIEW_COUNT);
+
 export function SkillsPreview() {
   return (
     <Section id="skills-preview" labelledBy={HEADING_ID}>

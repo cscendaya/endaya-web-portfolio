@@ -8,24 +8,24 @@ export const GITHUB_URL = "https://github.com/cscendaya";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/carlie-shaye-endaya";
 
 /**
- * Contact page copy and contact records. The page reads entirely from this file,
- * so a changed destination is a one-line edit here.
+ * Contact page copy and contact records. Destinations are sourced from the
+ * author's CV. The approved channels are fixed by FR-CONTACT-001/002/003.
  */
 export const CONTACT_HEADER = {
   title: "Contact",
   description:
-    "Open to internship opportunities, academic collaborations, and conversations about backend development, cybersecurity, and systems engineering. Every channel below reaches me directly.",
+    "The ways to reach me directly. Technical questions, opportunities, and collaboration are all welcome.",
 } as const;
 
 export const CONTACT_INTRODUCTION = {
   title: "Get in touch",
-  description: "Where to start, depending on what you need.",
-  body: "Internship opportunities, academic collaborations, or a discussion about backend development, cybersecurity, and systems engineering — I'd like to hear about it. Email is the most direct route and I read every message myself. GitHub and LinkedIn work just as well if you'd rather look at the work or the background first.",
+  description: "Every channel below reaches me directly.",
+  body: "I read and reply to messages myself — there is no form or intermediary between the channels below and my inbox. If you are reviewing my work for a role, email is the most reliable way to start, and I am happy to walk through the architecture or the decisions behind any project in this portfolio. For code, GitHub is the better starting point.",
 } as const;
 
 export const CONTACT_METHODS_SECTION = {
   title: "Ways to reach me",
-  description: "Three channels, all monitored.",
+  description: "Three channels, in the order I check them.",
   /** Rendered when CONTACT_METHODS is empty; matches the other page sections. */
   emptyState:
     "Contact methods have not been added yet. Approved communication channels will be presented here using the shared contact card.",
@@ -42,9 +42,9 @@ export const CONTACT_METHODS: ContactMethod[] = [
     title: "Email",
     icon: Mail,
     description:
-      "Best for opportunities, project enquiries, and anything that needs a real reply.",
-    linkLabel: CONTACT_EMAIL,
-    href: `mailto:${CONTACT_EMAIL}`,
+      "Best for opportunities, technical questions, and anything needing a considered reply.",
+    linkLabel: "carlieshaye.endaya@gmail.com",
+    href: "mailto:carlieshaye.endaya@gmail.com",
     external: false,
   },
   {
@@ -54,9 +54,9 @@ export const CONTACT_METHODS: ContactMethod[] = [
     // describes what it holds. Decorative either way: the title names the channel.
     icon: GitBranch,
     description:
-      "Source code for my projects, including this portfolio, and what I'm currently building.",
+      "Source for the backend and integration work presented in this portfolio.",
     linkLabel: "Open GitHub profile",
-    href: GITHUB_URL,
+    href: "https://github.com/cscendaya",
     external: true,
   },
   {
@@ -64,33 +64,38 @@ export const CONTACT_METHODS: ContactMethod[] = [
     title: "LinkedIn",
     icon: Briefcase,
     description:
-      "Academic background, specialization, and the professional side of my work.",
+      "Professional background, education, and internship experience in full.",
     linkLabel: "Open LinkedIn profile",
-    href: LINKEDIN_URL,
+    href: "https://linkedin.com/in/carlie-shaye-endaya",
     external: true,
   },
 ];
 
 export const AVAILABILITY_SECTION = {
   title: "Availability",
-  description: "What I'm currently open to.",
+  description: "What I am currently open to.",
   emptyState:
     "Availability details have not been added yet. Current openness to opportunities, collaboration, freelance, and employment will be presented here.",
 } as const;
 
-/** Each entry states an openness the author has confirmed; nothing is implied. */
 export const AVAILABILITY_ITEMS: AvailabilityItem[] = [
   {
     id: "opportunities",
     title: "Internships",
     description:
-      "Open to internship opportunities in backend development and cybersecurity.",
+      "Open to backend, systems, data, and security engineering opportunities.",
   },
   {
     id: "collaboration",
-    title: "Academic collaboration",
+    title: "Collaboration",
     description:
-      "Open to academic projects where I can contribute backend, database, or security work.",
+      "Open to collaborating on backend, systems integration, and security-focused projects.",
+  },
+  {
+    id: "freelance",
+    title: "Freelance",
+    description:
+      "Considering freelance backend and integration work alongside my studies.",
   },
   {
     id: "engineering-discussions",
