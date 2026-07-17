@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MainNav } from "@/components/layout/main-nav";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { PageContainer } from "@/components/layout/page-container";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { SITE_NAME } from "@/lib/constants/site";
 
 /**
@@ -21,8 +22,13 @@ export function SiteHeader() {
         >
           {SITE_NAME}
         </Link>
-        <MainNav />
-        <MobileNav />
+        {/* One toggle serves both navigations — it sits outside the disclosure
+            so the theme is reachable on mobile without opening the menu. */}
+        <div className="flex items-center gap-x-2">
+          <MainNav />
+          <ThemeToggle className="md:ml-2" />
+          <MobileNav />
+        </div>
       </PageContainer>
     </header>
   );

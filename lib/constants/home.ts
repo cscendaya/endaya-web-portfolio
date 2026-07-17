@@ -1,28 +1,27 @@
 /**
- * Home page copy. Sourced from the author's CV, the Datamatics narrative report,
- * and the Mapúa Malayan Colleges Laguna training plan. Claims are limited to what
- * those documents support: exposure and contribution are stated as they occurred,
- * without upgrading assistance into ownership.
+ * Home page copy. Kept here rather than inline so the page reads entirely from
+ * data and copy revisions stay a single, obvious edit.
  */
 export const HOME_HERO = {
+  greeting: "Hello, I'm",
   name: "Carlie Shaye C. Endaya",
-  role: "IT Student specializing in Cybersecurity | Backend & Systems Engineering",
+  role: "IT Student specializing in Cybersecurity",
   introduction:
-    "I build server-side systems — REST APIs, normalized schemas, and the middleware that connects mobile, IoT, and hardware clients to backend services. My capstone is a Raspberry Pi-based Wi-Fi security assessment platform, and an Information Security internship at Datamatics Philippines gave me enterprise exposure to SIEM monitoring, vulnerability management, and ISO 27001 compliance work.",
+    "I build systems that connect software, hardware, and data into practical solutions. My interests span backend architecture, cybersecurity, and system design, with a long-term goal of becoming a Data/Systems Engineer focused on secure and scalable infrastructure.",
+  /**
+   * The hero's second action is the résumé download, which names itself from
+   * `RESUME` rather than from here — one file name, one label, one place.
+   */
   primaryAction: { label: "View projects", href: "/projects" },
-  secondaryAction: { label: "Get in touch", href: "/contact" },
 } as const;
 
 export const HOME_SUMMARY = {
-  title: "Professional summary",
-  description:
-    "A backend-first engineering profile, developed across academic systems work and an enterprise information security internship.",
+  title: "How I think",
+  description: "The approach I bring to the systems I work on.",
   points: [
-    "Backend-focused IT student specializing in Cybersecurity at Mapúa Malayan Colleges Laguna, working primarily in API design, middleware, and server-side architecture.",
-    "Builds RESTful backends with front-controller routing and PDO-based data access layers, backed by normalized schemas with secure CRUD operations.",
-    "Integrates systems across boundaries — Raspberry Pi probes, Wemos D1 and Arduino sensors, and Android clients all wired to backend services over HTTP.",
-    "Applied information security in an enterprise setting at Datamatics Philippines: SIEM log review, endpoint monitoring through SentinelOne and Wazuh, vulnerability scanning with OpenVAS, and ISMS documentation against ISO 27001:2022, PCI DSS, and SOC 2 Type II.",
-    "Working toward backend, systems, data, and security engineering roles, with an emphasis on designs that stay maintainable after delivery.",
+    "I understand the problem before I design anything for it.",
+    "I integrate software, hardware, and data as one system rather than separate parts.",
+    "I treat security as part of development rather than a step at the end.",
   ],
 } as const;
 
@@ -39,8 +38,8 @@ export const HOME_FEATURED_PROJECTS = {
 export const HOME_SKILLS_PREVIEW = {
   title: "Skills",
   description:
-    "Competency groups spanning backend engineering, databases, systems integration, and enterprise information security.",
-  /** Rendered only if no skill category exists. */
+    "The technologies I have worked with, grouped by the area they belong to.",
+  /** Rendered until approved skill content exists; no skills are invented. */
   emptyState:
     "Skill content has not been added yet. Approved competency groups will be presented here.",
   action: { label: "View all skills", href: "/skills" },
@@ -49,6 +48,6 @@ export const HOME_SKILLS_PREVIEW = {
 export const HOME_CTA = {
   title: "Get in touch",
   description:
-    "Open to backend, systems, and security engineering conversations, including internships and entry-level roles.",
+    "Open to internships, collaboration, and backend or cybersecurity projects — I read every message myself.",
   action: { label: "Contact", href: "/contact" },
 } as const;

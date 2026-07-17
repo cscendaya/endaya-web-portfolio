@@ -8,10 +8,13 @@ import { PROJECTS } from "@/lib/constants/projects";
 
 const HEADING_ID = "featured-projects-heading";
 
+/** Only the projects marked featured; the Projects page carries the full set. */
+const FEATURED_PROJECTS = PROJECTS.filter((project) => project.featured);
+
 /**
- * Preview of selected projects, reading the projects marked `featured`. PROJECTS
- * order is preserved, so the capstone leads here as it does on the Projects
- * page. Falls back to the empty state when nothing is featured.
+ * Preview of selected projects, rendered through the same grid and card as the
+ * Projects page so neither can present a project differently. Falls back to the
+ * shared empty state when no project is featured.
  */
 const featuredProjects = PROJECTS.filter((project) => project.featured);
 
@@ -28,8 +31,8 @@ export function FeaturedProjectsPreview() {
           </Button>
         }
       />
-      {featuredProjects.length > 0 ? (
-        <ProjectsGrid projects={featuredProjects} />
+      {FEATURED_PROJECTS.length > 0 ? (
+        <ProjectsGrid projects={FEATURED_PROJECTS} />
       ) : (
         <EmptyState message={HOME_FEATURED_PROJECTS.emptyState} />
       )}

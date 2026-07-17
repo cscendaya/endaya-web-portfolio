@@ -1,9 +1,17 @@
 @import "tailwindcss";
 
 /*
+  Themes are class-based rather than media-query-based so an explicit Light or
+  Dark choice can override the system preference. `.dark` is set on <html>.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
   Design tokens for Version 1.
   Values implement 04_DESIGN_SYSTEM.md: restrained neutral foundation, colour as
-  functional support rather than decoration, light theme only.
+  functional support rather than decoration. The @theme block below defines the
+  light theme; the `.dark` block re-points the same roles at dark values, so
+  every utility built on these tokens themes itself without a dark: variant.
 */
 @theme {
   /* Breakpoints — mobile-first, shared by every page. */
@@ -46,9 +54,44 @@
   --spacing-section-lg: 6rem;
 }
 
+/*
+  Dark theme. Same roles, same structure — only the values change, so layout,
+  spacing, and hierarchy are identical across themes.
+
+  Unlayered on purpose: @theme emits its variables inside `@layer theme`, and
+  unlayered declarations always win over layered ones regardless of specificity.
+
+  Accent shifts lightness rather than hue. The light accent (#1d4ed8) reaches
+  only 2.1:1 on the dark background, so the blue is lifted to the same hue at a
+  lighter step; it stays recognisably the portfolio's blue and passes AA.
+*/
+.dark {
+  --color-background: #0b0f19;
+  --color-surface: #111827;
+  --color-border-subtle: #2d3748;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-accent-primary: #60a5fa;
+  --color-accent-primary-hover: #93c5fd;
+  --color-accent-secondary: #2dd4bf;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+
+  /* Light-theme shadows are invisible on a dark surface; deepen and widen. */
+  --shadow-token-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow-token-md: 0 1px 3px 0 rgb(0 0 0 / 0.5);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Keeps the browser's own surfaces — form controls, scrollbars — in step. */
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
@@ -56,6 +99,11 @@
     color: var(--color-text-primary);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    /* Softens the theme switch. Components already carry transition-colors for
+       hover, so they cross-fade with the page at the same time. */
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
   }
 
   /* Visible focus for every interactive element, per accessibility rules. */

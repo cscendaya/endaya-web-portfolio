@@ -1,21 +1,19 @@
 import type { EducationEntry, ExperienceEntry } from "@/types";
 
 /**
- * About page copy. Sourced from the author's CV, the Datamatics narrative report,
- * and the training plan. The experience summaries deliberately preserve the
- * ownership language of the narrative report — assisted, helped, observed, led —
- * so the entries stay accurate about what was contributed versus supported.
+ * About page copy. No history is invented here: the education and experience
+ * records state only facts the author has supplied, and the experience list is
+ * academic rather than employment, because no professional roles exist yet.
  */
 export const ABOUT_HEADER = {
   title: "About",
   description:
-    "A backend and systems engineering profile shaped by academic software work and enterprise information security practice.",
+    "An IT student specializing in cybersecurity, working mostly on the server side — secure backends, database design, and the systems that hold them together.",
 } as const;
 
 export const ABOUT_PROFILE = {
   title: "Professional profile",
-  description:
-    "How I approach engineering, where the experience comes from, and where it is heading.",
+  description: "Who I am, how I work, and where I am heading.",
   /** Ordered narrative: who, background, how they work, where they are headed. */
   entries: [
     {

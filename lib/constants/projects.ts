@@ -8,7 +8,7 @@ import type { Project, ProjectStatus } from "@/types";
 export const PROJECTS_HEADER = {
   title: "Projects",
   description:
-    "Systems work, led by the capstone. Each entry states what the system does and which parts of it I designed and built.",
+    "Academic software projects where I led or built the server side. Each entry states what the system does and the part I was responsible for.",
 } as const;
 
 export const PROJECTS_LISTING = {

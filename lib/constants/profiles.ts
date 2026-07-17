@@ -1,3 +1,8 @@
+import {
+  CONTACT_EMAIL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from "@/lib/constants/contact";
 import type { ExternalProfile } from "@/types";
 
 /** Footer contact destinations, sourced from the author's CV. */

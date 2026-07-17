@@ -8,14 +8,12 @@ import { SKILL_CATEGORIES } from "@/lib/constants/skills";
 
 const HEADING_ID = "skills-preview-heading";
 
-/** A preview, so it leads with the first groups and defers the rest to /skills. */
-const PREVIEW_COUNT = 4;
+/** A preview, so it stops short of the full inventory; Skills carries the rest. */
+const PREVIEW_CATEGORIES = SKILL_CATEGORIES.slice(0, 4);
 
 /**
- * Preview of the competency groups covered in full on the Skills page. Reads
- * SKILL_CATEGORIES in order and reuses the Skills page card, so a group cannot
- * present differently here than it does there. Falls back to the empty state
- * when no category exists.
+ * Preview of the competency groups covered in full on the Skills page, rendered
+ * through the same card so the two cannot describe a group differently.
  */
 const previewCategories = SKILL_CATEGORIES.slice(0, PREVIEW_COUNT);
 
@@ -32,9 +30,9 @@ export function SkillsPreview() {
           </Button>
         }
       />
-      {previewCategories.length > 0 ? (
+      {PREVIEW_CATEGORIES.length > 0 ? (
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {previewCategories.map((category) => (
+          {PREVIEW_CATEGORIES.map((category) => (
             <li key={category.id} className="flex">
               <SkillCategoryCard {...category} />
             </li>

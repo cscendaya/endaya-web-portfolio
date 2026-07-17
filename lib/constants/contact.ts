@@ -2,6 +2,11 @@ import { Briefcase, GitBranch, Mail } from "lucide-react";
 
 import type { AvailabilityItem, ContactMethod } from "@/types";
 
+/** The approved destinations, shared with the footer so the two cannot drift. */
+export const CONTACT_EMAIL = "carlieendaya@gmail.com";
+export const GITHUB_URL = "https://github.com/cscendaya";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/carlie-shaye-endaya";
+
 /**
  * Contact page copy and contact records. Destinations are sourced from the
  * author's CV. The approved channels are fixed by FR-CONTACT-001/002/003.
@@ -76,9 +81,9 @@ export const AVAILABILITY_SECTION = {
 export const AVAILABILITY_ITEMS: AvailabilityItem[] = [
   {
     id: "opportunities",
-    title: "Opportunities",
+    title: "Internships",
     description:
-      "Open to backend, systems, data, and security engineering opportunities, including internships.",
+      "Open to backend, systems, data, and security engineering opportunities.",
   },
   {
     id: "collaboration",
@@ -93,10 +98,10 @@ export const AVAILABILITY_ITEMS: AvailabilityItem[] = [
       "Considering freelance backend and integration work alongside my studies.",
   },
   {
-    id: "employment",
-    title: "Employment",
+    id: "engineering-discussions",
+    title: "Engineering discussions",
     description:
-      "Graduating in December 2026 and open to entry-level engineering roles from then.",
+      "Happy to talk about backend development, cybersecurity, and systems engineering — including the decisions behind the projects here.",
   },
 ];
 
@@ -105,8 +110,8 @@ export const AVAILABILITY_ITEMS: AvailabilityItem[] = [
  * channel, so the page reinforces contact without preferring one destination.
  */
 export const CONTACT_CTA = {
-  title: "Let's talk engineering",
+  title: "Let's talk",
   description:
-    "Whether it is about a role or a system you are building, I am glad to hear from you.",
+    "A short message is enough to start — tell me what you're working on and I'll reply.",
   action: { label: "View ways to reach me", href: "#contact-methods" },
 } as const;
