@@ -1,80 +1,83 @@
 import type { EducationEntry, ExperienceEntry } from "@/types";
 
 /**
- * About page placeholder copy. Every value below is an implementation
- * placeholder written in brackets so it can never be mistaken for approved
- * content; real copy is supplied during the content phase. No personal history
- * is invented here — the entry lists carry placeholder records with the approved
- * shape, and are replaced wholesale once real records exist.
+ * About page copy. Sourced from the author's CV, the Datamatics narrative report,
+ * and the training plan. The experience summaries deliberately preserve the
+ * ownership language of the narrative report — assisted, helped, observed, led —
+ * so the entries stay accurate about what was contributed versus supported.
  */
 export const ABOUT_HEADER = {
   title: "About",
   description:
-    "[Short introductory description — one or two sentences framing the professional context expanded on this page.]",
+    "A backend and systems engineering profile shaped by academic software work and enterprise information security practice.",
 } as const;
 
 export const ABOUT_PROFILE = {
   title: "Professional profile",
   description:
-    "[Supporting description — one sentence framing the profile below.]",
+    "How I approach engineering, where the experience comes from, and where it is heading.",
   /** Ordered narrative: who, background, how they work, where they are headed. */
   entries: [
     {
       heading: "Introduction",
-      body: "[Personal introduction — two or three sentences establishing professional identity and the engineering focus this portfolio presents.]",
+      body: "I am a fourth-year BS Information Technology student at Mapúa Malayan Colleges Laguna, specializing in Cybersecurity and working backend-first. My interest is in the parts of a system most users never see: the API boundaries, the data model underneath, and the middleware that lets separate components exchange data reliably. This portfolio presents systems work rather than interface work.",
     },
     {
       heading: "Professional background",
-      body: "[Professional background — two or three sentences covering the path into engineering and the kind of work carried out so far.]",
+      body: "My experience combines academic software engineering with enterprise information security. On the engineering side, I have architected RESTful backends with front-controller routing and PDO-based data access layers, designed normalized schemas with secure CRUD operations, and built integrations connecting Raspberry Pi, Wemos D1, and Android clients to server-side services — most substantially as technical lead on my capstone, a Wi-Fi security assessment platform. On the security side, I served as an Information Security intern at Datamatics Philippines, assigned to the IT Security team under its ISMS function, where I reviewed SIEM logs, monitored endpoints, and contributed to compliance documentation in a live enterprise environment.",
     },
     {
       heading: "Engineering philosophy",
-      body: "[Engineering philosophy — two or three sentences on how problems are approached, what quality means in practice, and which trade-offs are favoured.]",
+      body: "I treat structure as the deliverable. A system is finished when its boundaries are clear, its data model holds its own invariants, and the next person can change it without reading every file first — not when the feature happens to work. I prefer explicit, readable implementations over clever ones, and I would rather spend the time on schema design and interface contracts up front than debug the consequences of skipping them. Security reinforced this: reviewing real incidents taught me that most failures trace back to a decision that seemed harmless at the time.",
     },
     {
       heading: "Career objectives",
-      body: "[Career objectives — two or three sentences on intended direction and the kind of engineering work being pursued.]",
+      body: "I am working toward backend and systems engineering roles where the problems are architectural — designing services, data pipelines, and the integration layers between them — and where security is a design input rather than a later audit. In the near term I am looking for engineering work that puts me close to production systems and their data. Longer term, I am aiming at data engineering and platform or infrastructure work, building on the backend and security foundation I am developing now.",
     },
   ],
 } as const;
 
-export const ABOUT_EDUCATION = {
-  title: "Education",
-  description:
-    "[Supporting description — one sentence framing the educational background below.]",
-  /** Replaced with approved records; placeholders never state real history. */
-  entries: [
-    {
-      degree: "[Degree]",
-      institution: "[Institution]",
-      year: "[Year range]",
-      description:
-        "[Optional description — one sentence on focus areas or relevant coursework.]",
-    },
-  ] satisfies EducationEntry[],
-} as const;
-
 export const ABOUT_EXPERIENCE = {
-  title: "Experience",
+  title: "Professional experience",
   description:
-    "[Supporting description — one sentence framing the professional experience below.]",
-  /** Reverse-chronological once approved records replace these placeholders. */
+    "Applied information security practice in an enterprise environment.",
+  /** Reverse-chronological. */
   entries: [
     {
-      role: "[Current role]",
-      organization: "[Organization]",
-      duration: "[Start — Present]",
+      role: "Information Security Intern",
+      organization: "Datamatics Philippines",
+      duration: "2026",
       summary:
-        "[Summary — one or two sentences on responsibilities, engineering contribution, and outcome.]",
+        "Assigned to the IT Security team under the Information Security Management System (ISMS) function. Reviewed and audited daily security logs from the organization's SIEM platform, engaged in the Threat Intelligence Process (TIP), and referenced internal playbooks to identify anomalies. Monitored endpoint activity and malware alerts, investigating and documenting findings generated by SentinelOne and OpenVAS, and assisted in vulnerability scanning and reporting aligned to NIST incident response and vulnerability management frameworks. Contributed to monthly desktop auditing — verifying SentinelOne agent versions, checking audit compliance, and handling frontline diagnostics such as outdated clients, agents disconnected from the central console, and network interruptions caused by SentinelOne blocking traffic in response to malware detections. Observed and assisted in firewall configuration and monitoring, supporting traffic filtering, policy review, and threat visibility. In Governance, Risk, and Compliance, helped maintain ISMS documentation and assisted with reporting for ISO 27001:2022, PCI DSS, and SOC 2 Type II; proofread and edited information security policies and prepared evidence for internal audits. Designed cyber warfare infographics for internal awareness campaigns and regularly led ISMS presentations in the supervisor's absence.",
     },
     {
-      role: "[Previous role]",
-      organization: "[Previous organization]",
-      duration: "[Start — End]",
+      role: "Work Immersion, IT Documentation Lead",
+      organization: "CREOTEC",
+      duration: "2022",
       summary:
-        "[Summary — one or two sentences on responsibilities, engineering contribution, and outcome.]",
+        "Developed Android-based applications backed by server-side services to support business operations, including tools for payroll automation, internal monitoring, and departmental workflows.",
     },
   ] satisfies ExperienceEntry[],
+} as const;
+
+export const ABOUT_EDUCATION = {
+  title: "Education",
+  description: "Academic background and specialization.",
+  entries: [
+    {
+      degree: "Bachelor of Science in Information Technology, Cybersecurity Specialization",
+      institution: "Mapúa Malayan Colleges Laguna",
+      year: "2022 — 2026 (expected)",
+      description:
+        "Consistent Dean's Lister. Coursework spans backend development, database design, networking, and security analysis; capstone work centers on a Raspberry Pi-based Wi-Fi security assessment platform.",
+    },
+    {
+      degree: "Science, Technology, Engineering, and Mathematics (STEM) Strand",
+      institution: "Santa Rosa Science and Technology High School",
+      year: "2016 — 2022",
+      description: "Graduated With High Honors.",
+    },
+  ] satisfies EducationEntry[],
 } as const;
 
 /**
@@ -83,15 +86,14 @@ export const ABOUT_EXPERIENCE = {
  */
 export const ABOUT_TECHNOLOGIES = {
   title: "Technologies",
-  description:
-    "[Supporting description — one sentence framing technical capability at a high level.]",
-  body: "[Technologies overview — two or three sentences describing the areas of the stack worked in and how tools are chosen. Kept contextual; the complete skill inventory is presented on the Skills page.]",
+  description: "The areas of the stack I work in, at a high level.",
+  body: "My work sits mainly on the server side: PHP, C#, and Python for application and API logic, MySQL and Supabase for data, and XAMPP, Railway, and Raspberry Pi as the environments they run on. I reach for tools that fit the constraints of the system rather than the newest option — a PDO data access layer and a normalized schema solve most of what an academic project actually needs. Security tooling from my internship (Wazuh, SentinelOne, OpenVAS, FortiGate) sits alongside this rather than replacing it. The complete inventory is on the Skills page.",
   action: { label: "View all skills", href: "/skills" },
 } as const;
 
 export const ABOUT_CTA = {
   title: "See the work",
   description:
-    "[Supporting description — one sentence transitioning from professional context to the projects that demonstrate it.]",
+    "The projects below show how this background translates into delivered systems.",
   action: { label: "View projects", href: "/projects" },
 } as const;

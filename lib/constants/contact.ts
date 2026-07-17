@@ -3,29 +3,24 @@ import { Briefcase, GitBranch, Mail } from "lucide-react";
 import type { AvailabilityItem, ContactMethod } from "@/types";
 
 /**
- * Contact page copy and contact records. No contact detail is invented here: the
- * approved channels are fixed by FR-CONTACT-001/002/003, but their destinations
- * stay unset until the real values are supplied during the content phase, the
- * same way the footer profiles do. The page reads entirely from this file, so
- * nothing about the UI changes when the real destinations arrive.
+ * Contact page copy and contact records. Destinations are sourced from the
+ * author's CV. The approved channels are fixed by FR-CONTACT-001/002/003.
  */
 export const CONTACT_HEADER = {
   title: "Contact",
   description:
-    "[Short introductory description — one or two sentences framing how to reach the author and what kind of message is welcome.]",
+    "The ways to reach me directly. Technical questions, opportunities, and collaboration are all welcome.",
 } as const;
 
 export const CONTACT_INTRODUCTION = {
   title: "Get in touch",
-  description:
-    "[Supporting description — one sentence framing the channels below.]",
-  body: "[Introduction copy — two or three sentences encouraging professional communication, stating that messages are read directly and that every channel below reaches the author.]",
+  description: "Every channel below reaches me directly.",
+  body: "I read and reply to messages myself — there is no form or intermediary between the channels below and my inbox. If you are reviewing my work for a role, email is the most reliable way to start, and I am happy to walk through the architecture or the decisions behind any project in this portfolio. For code, GitHub is the better starting point.",
 } as const;
 
 export const CONTACT_METHODS_SECTION = {
   title: "Ways to reach me",
-  description:
-    "[Supporting description — one sentence framing the approved communication channels.]",
+  description: "Three channels, in the order I check them.",
   /** Rendered when CONTACT_METHODS is empty; matches the other page sections. */
   emptyState:
     "Contact methods have not been added yet. Approved communication channels will be presented here using the shared contact card.",
@@ -42,9 +37,9 @@ export const CONTACT_METHODS: ContactMethod[] = [
     title: "Email",
     icon: Mail,
     description:
-      "[Supporting description — one sentence saying what email is best used for.]",
-    linkLabel: "[Email address placeholder]",
-    href: "#",
+      "Best for opportunities, technical questions, and anything needing a considered reply.",
+    linkLabel: "carlieshaye.endaya@gmail.com",
+    href: "mailto:carlieshaye.endaya@gmail.com",
     external: false,
   },
   {
@@ -54,9 +49,9 @@ export const CONTACT_METHODS: ContactMethod[] = [
     // describes what it holds. Decorative either way: the title names the channel.
     icon: GitBranch,
     description:
-      "[Supporting description — one sentence saying what the GitHub profile shows.]",
+      "Source for the backend and integration work presented in this portfolio.",
     linkLabel: "Open GitHub profile",
-    href: "#",
+    href: "https://github.com/cscendaya",
     external: true,
   },
   {
@@ -64,61 +59,54 @@ export const CONTACT_METHODS: ContactMethod[] = [
     title: "LinkedIn",
     icon: Briefcase,
     description:
-      "[Supporting description — one sentence saying what the LinkedIn profile shows.]",
+      "Professional background, education, and internship experience in full.",
     linkLabel: "Open LinkedIn profile",
-    href: "#",
+    href: "https://linkedin.com/in/carlie-shaye-endaya",
     external: true,
   },
 ];
 
 export const AVAILABILITY_SECTION = {
   title: "Availability",
-  description:
-    "[Supporting description — one sentence framing the kinds of work currently of interest.]",
+  description: "What I am currently open to.",
   emptyState:
     "Availability details have not been added yet. Current openness to opportunities, collaboration, freelance, and employment will be presented here.",
 } as const;
 
-/**
- * Placeholder framing only. Each entry names a kind of work the author may be
- * open to; the descriptions are supplied during the content phase rather than
- * asserted here, since availability is a claim only the author can make.
- */
 export const AVAILABILITY_ITEMS: AvailabilityItem[] = [
   {
     id: "opportunities",
     title: "Opportunities",
     description:
-      "[Availability copy — one sentence stating current openness to new opportunities.]",
+      "Open to backend, systems, data, and security engineering opportunities, including internships.",
   },
   {
     id: "collaboration",
     title: "Collaboration",
     description:
-      "[Availability copy — one sentence stating current openness to collaboration on projects.]",
+      "Open to collaborating on backend, systems integration, and security-focused projects.",
   },
   {
     id: "freelance",
     title: "Freelance",
     description:
-      "[Availability copy — one sentence stating current openness to freelance work.]",
+      "Considering freelance backend and integration work alongside my studies.",
   },
   {
     id: "employment",
     title: "Employment",
     description:
-      "[Availability copy — one sentence stating current openness to employment.]",
+      "Graduating in December 2026 and open to entry-level engineering roles from then.",
   },
 ];
 
 /**
  * The closing action points back to the methods above rather than to a single
- * channel, so the page reinforces contact without preferring a destination that
- * has not been provided yet.
+ * channel, so the page reinforces contact without preferring one destination.
  */
 export const CONTACT_CTA = {
-  title: "[Closing title — a short line reinforcing professional contact.]",
+  title: "Let's talk engineering",
   description:
-    "[Supporting description — one sentence encouraging visitors to reach out.]",
+    "Whether it is about a role or a system you are building, I am glad to hear from you.",
   action: { label: "View ways to reach me", href: "#contact-methods" },
 } as const;

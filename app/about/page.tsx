@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 };
 
 /**
- * Approved reading progression: identity, then the background behind it and the
- * evidence of how it was built, then the next step toward the work itself.
+ * Approved reading progression: identity, then applied professional experience,
+ * then the academic background behind it, then the next step toward the work.
  */
 export default function AboutPage() {
   return (
@@ -25,8 +25,8 @@ export default function AboutPage() {
         description={ABOUT_HEADER.description}
       />
       <ProfessionalProfile />
-      <Education />
       <Experience />
+      <Education />
       <TechnologiesOverview />
       <CtaSection
         id="projects-cta"
