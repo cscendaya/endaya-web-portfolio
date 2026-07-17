@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { AcademicExperience } from "@/components/about/academic-experience";
 import { Education } from "@/components/about/education";
 import { Experience } from "@/components/about/experience";
 import { ProfessionalProfile } from "@/components/about/professional-profile";
@@ -11,6 +12,8 @@ import { ABOUT_CTA, ABOUT_HEADER } from "@/lib/constants/about";
 
 export const metadata: Metadata = {
   title: "About",
+  description: ABOUT_HEADER.description,
+  openGraph: { title: "About", description: ABOUT_HEADER.description },
 };
 
 /**
@@ -26,6 +29,7 @@ export default function AboutPage() {
       />
       <ProfessionalProfile />
       <Experience />
+      <AcademicExperience />
       <Education />
       <TechnologiesOverview />
       <CtaSection

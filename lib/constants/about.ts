@@ -24,7 +24,7 @@ export const ABOUT_PROFILE = {
     },
     {
       heading: "Professional background",
-      body: "My experience combines academic software engineering with enterprise information security. On the engineering side, I have architected RESTful backends with front-controller routing and PDO-based data access layers, designed normalized schemas with secure CRUD operations, and built integrations connecting Raspberry Pi, Wemos D1, and Android clients to server-side services — most substantially as technical lead on my capstone, a Wi-Fi security assessment platform. On the security side, I served as an Information Security intern at Datamatics Philippines, assigned to the IT Security team under its ISMS function, where I reviewed SIEM logs, monitored endpoints, and contributed to compliance documentation in a live enterprise environment.",
+      body: "My experience combines academic software engineering with enterprise information security. The academic side spans backend and API development, relational database design, and the integration of embedded devices, mobile clients, and web services into systems that had to run as a whole. On the security side, I served as an Information Security intern at Datamatics Philippines, assigned to the IT Security team under its ISMS function, where I reviewed SIEM logs, monitored endpoints, and contributed to compliance documentation in a live enterprise environment.",
     },
     {
       heading: "Engineering philosophy",
@@ -58,6 +58,22 @@ export const ABOUT_EXPERIENCE = {
         "Developed Android-based applications backed by server-side services to support business operations, including tools for payroll automation, internal monitoring, and departmental workflows.",
     },
   ] satisfies ExperienceEntry[],
+} as const;
+
+/**
+ * Summary of undergraduate engineering experience. Prose, not a project list:
+ * the Projects page is the source of truth for individual projects, so no
+ * project is named here and the section closes by pointing readers there.
+ */
+export const ABOUT_ACADEMIC = {
+  title: "Academic engineering experience",
+  description:
+    "The engineering ground covered across four years of undergraduate project work.",
+  paragraphs: [
+    "Across four years of undergraduate coursework and project work, most of my engineering happened on the server side. I designed and built RESTful backends — front-controller routing, PDO-based data access layers, and secure CRUD operations with paginated retrieval — over normalized relational schemas built to hold their own invariants. Relational database design and clear API contracts were where I spent the most deliberate effort.",
+    "That backend work rarely stood alone. I integrated separate components into systems that had to run as a whole, connecting embedded devices such as Raspberry Pi probes and Wemos D1 microcontrollers, along with Android and web clients, to server-side services — and writing the middleware and firmware on both sides of the device-to-server boundary. The same period covered mobile and web application development across several stacks, and embedded work close to the hardware.",
+    "Cybersecurity is my specialization, and it shaped how I approached even projects where security was not the point, treating input handling, data exposure, and access as design inputs rather than later fixes. Much of the work was collaborative, and I led teams as often as I contributed to them — coordinating tasks and carrying systems from concept to delivery. Representative engineering work is documented in the Projects section.",
+  ],
 } as const;
 
 export const ABOUT_EDUCATION = {
