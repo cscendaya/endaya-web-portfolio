@@ -1,11 +1,11 @@
 import type { ExternalProfile } from "@/types";
 
 /**
- * Footer contact placeholders. Destinations stay unset until the approved values
- * are supplied during the content phase; only structure and ordering are fixed.
+ * Footer contact links. The Email destination stays unset until the approved
+ * address is supplied during the content phase.
  */
 export const EXTERNAL_PROFILES: ExternalProfile[] = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  { label: "GitHub", href: "https://github.com/cscendaya" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/carlie-shaye-endaya" },
   { label: "Email", href: "#" },
 ];

@@ -4,8 +4,8 @@ import type { AvailabilityItem, ContactMethod } from "@/types";
 
 /**
  * Contact page copy and contact records. No contact detail is invented here: the
- * approved channels are fixed by FR-CONTACT-001/002/003, but their destinations
- * stay unset until the real values are supplied during the content phase, the
+ * approved channels are fixed by FR-CONTACT-001/002/003. The email destination
+ * stays unset until the real address is supplied during the content phase, the
  * same way the footer profiles do. The page reads entirely from this file, so
  * nothing about the UI changes when the real destinations arrive.
  */
@@ -56,7 +56,7 @@ export const CONTACT_METHODS: ContactMethod[] = [
     description:
       "[Supporting description — one sentence saying what the GitHub profile shows.]",
     linkLabel: "Open GitHub profile",
-    href: "#",
+    href: "https://github.com/cscendaya",
     external: true,
   },
   {
@@ -66,7 +66,7 @@ export const CONTACT_METHODS: ContactMethod[] = [
     description:
       "[Supporting description — one sentence saying what the LinkedIn profile shows.]",
     linkLabel: "Open LinkedIn profile",
-    href: "#",
+    href: "https://www.linkedin.com/in/carlie-shaye-endaya",
     external: true,
   },
 ];

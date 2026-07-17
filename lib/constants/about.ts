@@ -47,7 +47,7 @@ export const ABOUT_EDUCATION = {
     {
       degree: "[Degree]",
       institution: "[Institution]",
-      year: "[Year range]",
+      year: "2022 — 2026",
       description:
         "[Optional description — one sentence on focus areas or relevant coursework.]",
     },
