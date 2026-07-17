@@ -1,10 +1,10 @@
-import type { Project } from "@/types";
+import type { Project, ProjectStatus } from "@/types";
 
 /**
- * Projects page copy and project records. Every value is a bracketed
- * implementation placeholder; no project, technology, or external resource is
- * invented. Approved project content replaces PROJECTS wholesale — the page and
- * the card read entirely from this list.
+ * Projects page copy and project records. No project, technology, or external
+ * resource is invented here. Approved project content is added to PROJECTS —
+ * the page, the grid, and the card read entirely from this list, so nothing
+ * else has to change when real projects arrive.
  */
 export const PROJECTS_HEADER = {
   title: "Projects",
@@ -24,37 +24,40 @@ export const PROJECTS_LISTING = {
 export const PROJECT_LABELS = {
   contribution: "Engineering contribution",
   technologies: "Technologies",
+  featured: "Featured",
 } as const;
 
+/** Presentation text for each status; the union keeps the set closed. */
+export const PROJECT_STATUS_LABELS: Record<ProjectStatus, string> = {
+  "in-progress": "In progress",
+  completed: "Completed",
+  maintained: "Maintained",
+};
+
 /**
- * Placeholder records only. `repository`, `demo`, and `screenshot` are omitted
- * rather than filled with invented destinations: the card renders each only when
- * the approved resource exists, so the omissions here exercise that path.
+ * Empty until approved project content exists. Fabricated entries would read as
+ * portfolio evidence, so the page renders its empty state instead.
+ *
+ * Each approved project is one `Project` record:
+ *
+ *   {
+ *     slug: "inventory-service",
+ *     title: "Inventory Service",
+ *     summary: "…purpose, understandable without opening any link.",
+ *     contribution: "…what was designed, built, and decided.",
+ *     technologies: ["TypeScript", "PostgreSQL"],
+ *     category: "Backend service",
+ *     status: "completed",                                     // optional
+ *     featured: true,                                          // optional
+ *     repository: { label: "Repository", href: "https://…" },  // optional
+ *     demo: { label: "Live demo", href: "https://…" },         // optional
+ *   }
+ *
+ * `repository`, `demo`, `status`, `featured`, and `screenshot` stay omitted
+ * unless the approved resource or fact exists — the card renders each only when
+ * it is present.
  */
-export const PROJECTS: Project[] = [
-  {
-    slug: "project-one",
-    title: "[Project title]",
-    summary:
-      "[Project summary — two or three sentences on the problem the project addresses and its purpose. Understandable without opening any external resource.]",
-    contribution:
-      "[Engineering contribution — two or three sentences on what was designed and built, the decisions owned, and the outcome.]",
-    technologies: [
-      "[Technology one]",
-      "[Technology two]",
-      "[Technology three]",
-    ],
-  },
-  {
-    slug: "project-two",
-    title: "[Project title]",
-    summary:
-      "[Project summary — two or three sentences on the problem the project addresses and its purpose. Understandable without opening any external resource.]",
-    contribution:
-      "[Engineering contribution — two or three sentences on what was designed and built, the decisions owned, and the outcome.]",
-    technologies: ["[Technology one]", "[Technology two]"],
-  },
-];
+export const PROJECTS: Project[] = [];
 
 export const PROJECTS_CTA = {
   title: "Get in touch",

@@ -1,15 +1,20 @@
 import { ProjectScreenshot } from "@/components/projects/project-screenshot";
 import { TechnologyBadge } from "@/components/projects/technology-badge";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { ExternalLink } from "@/components/ui/external-link";
-import { PROJECT_LABELS } from "@/lib/constants/projects";
+import {
+  PROJECT_LABELS,
+  PROJECT_STATUS_LABELS,
+} from "@/lib/constants/projects";
 import type { Project } from "@/types";
 
 /**
- * One project, presented the same way every time: purpose, then engineering
- * contribution, then the technologies behind it. A static card — the whole
- * record is readable in place, so nothing here navigates except the approved
- * external resources, and the card itself is never a link.
+ * One project, presented the same way every time: what it is, then purpose,
+ * then engineering contribution, then the technologies behind it. A static card
+ * — the whole record is readable in place, so nothing here navigates except the
+ * approved external resources, and the card itself is never a link. Links sit
+ * at the foot so they align across a row whatever the length of the prose.
  */
 export function ProjectCard({
   slug,
@@ -17,6 +22,9 @@ export function ProjectCard({
   summary,
   contribution,
   technologies,
+  category,
+  status,
+  featured,
   repository,
   demo,
   screenshot,
@@ -26,9 +34,19 @@ export function ProjectCard({
   const technologiesId = `${slug}-technologies`;
 
   return (
-    <Card className="flex flex-col gap-5">
+    <Card className="flex h-full w-full flex-col gap-5">
       <div>
-        <h3 id={titleId} className="text-lg font-semibold text-text-primary">
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge>{category}</Badge>
+          {status ? <Badge>{PROJECT_STATUS_LABELS[status]}</Badge> : null}
+          {featured ? (
+            <Badge variant="accent">{PROJECT_LABELS.featured}</Badge>
+          ) : null}
+        </div>
+        <h3
+          id={titleId}
+          className="mt-3 text-lg font-semibold text-text-primary"
+        >
           {title}
         </h3>
         <p className="mt-2 max-w-(--container-prose) text-base text-text-secondary">
@@ -70,7 +88,7 @@ export function ProjectCard({
       </div>
 
       {repository || demo ? (
-        <ul className="flex flex-wrap gap-x-6 gap-y-2">
+        <ul className="mt-auto flex flex-wrap gap-x-6 gap-y-2">
           {repository ? (
             <li>
               <ExternalLink href={repository.href}>

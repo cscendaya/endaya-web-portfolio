@@ -1,15 +1,15 @@
-import { ProjectCard } from "@/components/projects/project-card";
+import { ProjectsGrid } from "@/components/projects/projects-grid";
 import { Section } from "@/components/layout/section";
-import { Card } from "@/components/ui/card";
+import { EmptyState } from "@/components/ui/empty-state";
 import { SectionHeader } from "@/components/ui/section-header";
 import { PROJECTS, PROJECTS_LISTING } from "@/lib/constants/projects";
 
 const HEADING_ID = "project-listing-heading";
 
 /**
- * The project listing. A list, because the projects are a set of peers and the
- * count is part of the information; the empty state stands in until approved
- * project content exists, matching the Home preview rather than inventing work.
+ * The project listing section: heading, then either the grid or the empty
+ * state. The empty state stands in until approved project content exists,
+ * matching the Home preview rather than inventing work.
  */
 export function ProjectListing() {
   return (
@@ -20,19 +20,9 @@ export function ProjectListing() {
         description={PROJECTS_LISTING.description}
       />
       {PROJECTS.length > 0 ? (
-        <ul className="flex flex-col gap-6">
-          {PROJECTS.map((project) => (
-            <li key={project.slug}>
-              <ProjectCard {...project} />
-            </li>
-          ))}
-        </ul>
+        <ProjectsGrid projects={PROJECTS} />
       ) : (
-        <Card>
-          <p className="max-w-(--container-prose) text-base text-text-secondary">
-            {PROJECTS_LISTING.emptyState}
-          </p>
-        </Card>
+        <EmptyState message={PROJECTS_LISTING.emptyState} />
       )}
     </Section>
   );

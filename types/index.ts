@@ -34,6 +34,12 @@ export interface ProjectScreenshotAsset {
   alt: string;
 }
 
+/**
+ * Version 1 has no filtering, so status is presentation only: it exists to say
+ * a project is unfinished when that is true, not to drive behaviour.
+ */
+export type ProjectStatus = "in-progress" | "completed" | "maintained";
+
 export interface Project {
   /** Stable identity for keys and anchors; independent of the title. */
   slug: string;
@@ -44,6 +50,11 @@ export interface Project {
   contribution: string;
   /** FR-PROJ-004: primary technologies only, not an exhaustive list. */
   technologies: string[];
+  /** Groups the project against the approved categories, e.g. "Web application". */
+  category: string;
+  status?: ProjectStatus;
+  /** Marks the project for the Home preview; on Projects it only adds a badge. */
+  featured?: boolean;
   repository?: ProjectResource;
   demo?: ProjectResource;
   screenshot?: ProjectScreenshotAsset;
