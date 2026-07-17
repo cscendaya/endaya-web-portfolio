@@ -1,11 +1,13 @@
 import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/ui/page-header";
+import { ResumeDownload } from "@/components/ui/resume-download";
 import { HOME_HERO } from "@/lib/constants/home";
 
 /**
  * Home introduction: professional identity first, then the two approved next
- * steps. Composed from Page Header, Button, and the profile image placeholder.
+ * steps — see the work, or take the résumé away. Composed from Page Header,
+ * Button, and the profile image placeholder.
  */
 export function Hero() {
   return (
@@ -20,9 +22,7 @@ export function Hero() {
             <Button href={HOME_HERO.primaryAction.href}>
               {HOME_HERO.primaryAction.label}
             </Button>
-            <Button href={HOME_HERO.secondaryAction.href} variant="secondary">
-              {HOME_HERO.secondaryAction.label}
-            </Button>
+            <ResumeDownload variant="secondary" />
           </div>
         </div>
         {/*

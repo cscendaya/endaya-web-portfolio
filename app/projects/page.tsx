@@ -8,6 +8,8 @@ import { PROJECTS_CTA, PROJECTS_HEADER } from "@/lib/constants/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
+  description: PROJECTS_HEADER.description,
+  openGraph: { title: "Projects", description: PROJECTS_HEADER.description },
 };
 
 /**

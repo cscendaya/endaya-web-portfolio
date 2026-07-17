@@ -1,78 +1,90 @@
 import type { EducationEntry, ExperienceEntry } from "@/types";
 
 /**
- * About page placeholder copy. Every value below is an implementation
- * placeholder written in brackets so it can never be mistaken for approved
- * content; real copy is supplied during the content phase. No personal history
- * is invented here — the entry lists carry placeholder records with the approved
- * shape, and are replaced wholesale once real records exist.
+ * About page copy. No history is invented here: the education and experience
+ * records state only facts the author has supplied, and the experience list is
+ * academic rather than employment, because no professional roles exist yet.
  */
 export const ABOUT_HEADER = {
   title: "About",
   description:
-    "[Short introductory description — one or two sentences framing the professional context expanded on this page.]",
+    "An IT student specializing in cybersecurity, working mostly on the server side — secure backends, database design, and the systems that hold them together.",
 } as const;
 
 export const ABOUT_PROFILE = {
   title: "Professional profile",
-  description:
-    "[Supporting description — one sentence framing the profile below.]",
+  description: "Who I am, how I work, and where I am heading.",
   /** Ordered narrative: who, background, how they work, where they are headed. */
   entries: [
     {
       heading: "Introduction",
-      body: "[Personal introduction — two or three sentences establishing professional identity and the engineering focus this portfolio presents.]",
+      body: "I'm Carlie Shaye C. Endaya, a fourth-year BS Information Technology student specializing in cybersecurity, and a consistent Dean's Lister. What pulled me into technology was wanting to know how things actually work underneath — not that a request returns data, but what happens between the two. I would rather reason about the system behind an interface than design the interface itself.",
     },
     {
       heading: "Professional background",
-      body: "[Professional background — two or three sentences covering the path into engineering and the kind of work carried out so far.]",
+      body: "My work so far has been academic. It has meant integrating APIs, databases, mobile applications, and embedded devices into systems that had to run as a whole, most of it from the backend and the architecture outward. Cybersecurity is my specialization, and it shapes how I write backend code even on projects where security is not the point.",
     },
     {
       heading: "Engineering philosophy",
-      body: "[Engineering philosophy — two or three sentences on how problems are approached, what quality means in practice, and which trade-offs are favoured.]",
+      body: "I understand a problem before designing for it, and I understand a system as a whole before optimizing any part of it — most of the expensive mistakes I've seen come from fixing a component without knowing what it sits inside. Simplicity and maintainability are the goal; documentation is part of the work rather than an afterthought.",
     },
     {
       heading: "Career objectives",
-      body: "[Career objectives — two or three sentences on intended direction and the kind of engineering work being pursued.]",
+      body: "I am currently building a strong foundation in backend development and cybersecurity while expanding my knowledge of distributed systems, cloud technologies, and data infrastructure. As I continue to grow professionally, I aim to specialize in Data Engineering and Systems Engineering, designing secure and scalable platforms that support real-world applications.",
+    },
+    {
+      heading: "About this portfolio",
+      body: "This site began as an academic requirement. I intend to keep it as a working record of what I build, and to let it grow with my career rather than end with the course.",
     },
   ],
 } as const;
 
 export const ABOUT_EDUCATION = {
   title: "Education",
-  description:
-    "[Supporting description — one sentence framing the educational background below.]",
-  /** Replaced with approved records; placeholders never state real history. */
+  description: "Where the formal side of my background comes from.",
   entries: [
     {
-      degree: "[Degree]",
+      degree:
+        "Bachelor of Science in Information Technology — Cybersecurity specialization",
       institution: "[Institution]",
-      year: "[Year range]",
+      year: "2022 — 2026",
       description:
-        "[Optional description — one sentence on focus areas or relevant coursework.]",
+        "Fourth year, and a consistent Dean's Lister. Coursework and capstone work in security assessment, backend development, and relational database design. The projects in this portfolio come out of this programme.",
     },
   ] satisfies EducationEntry[],
 } as const;
 
+/**
+ * Academic rather than employment history: no professional roles exist yet, and
+ * inventing one would misrepresent the record. Each entry is a role actually
+ * held on a project presented on the Projects page.
+ */
 export const ABOUT_EXPERIENCE = {
-  title: "Experience",
+  title: "Academic experience",
   description:
-    "[Supporting description — one sentence framing the professional experience below.]",
-  /** Reverse-chronological once approved records replace these placeholders. */
+    "Roles I held on academic software projects. I have no professional employment history yet.",
+  /** Reverse-chronological, mirroring the Projects page ordering. */
   entries: [
     {
-      role: "[Current role]",
-      organization: "[Organization]",
-      duration: "[Start — Present]",
+      role: "Technical Lead / Full Stack Developer",
+      organization: "Wi-Fi Security Assessment Tool — academic project",
+      duration: "Academic project",
       summary:
-        "[Summary — one or two sentences on responsibilities, engineering contribution, and outcome.]",
+        "Led development of a web-based Wi-Fi security assessment platform using a Raspberry Pi as the hardware probe, covering backend, frontend, database architecture, and system integration.",
     },
     {
-      role: "[Previous role]",
-      organization: "[Previous organization]",
-      duration: "[Start — End]",
+      role: "Backend Developer",
+      organization: "R-EaseCite Mobile Application — academic project",
+      duration: "Academic project",
       summary:
-        "[Summary — one or two sentences on responsibilities, engineering contribution, and outcome.]",
+        "Built the RESTful API and the relational schema behind it, and implemented secure CRUD operations, pagination, and server-side logic in PHP with PDO for an Android client.",
+    },
+    {
+      role: "Backend Developer",
+      organization: "CCIS Department Event Enlistment App — academic project",
+      duration: "Academic project",
+      summary:
+        "Worked on the ASP.NET backend for event tracking and attendance management, in a team where coordinating the work was part of the work.",
     },
   ] satisfies ExperienceEntry[],
 } as const;
@@ -83,15 +95,14 @@ export const ABOUT_EXPERIENCE = {
  */
 export const ABOUT_TECHNOLOGIES = {
   title: "Technologies",
-  description:
-    "[Supporting description — one sentence framing technical capability at a high level.]",
-  body: "[Technologies overview — two or three sentences describing the areas of the stack worked in and how tools are chosen. Kept contextual; the complete skill inventory is presented on the Skills page.]",
+  description: "The parts of the stack I actually work in.",
+  body: "I spend most of my time on the backend — REST services, server-side logic, and relational database design — and I'm comfortable enough on the frontend to carry a full-stack project on my own. Security work and embedded integration sit alongside that rather than apart from it. I pick tools for what a project needs and how easily the next person can maintain the result, not for novelty. The complete list is on the Skills page.",
   action: { label: "View all skills", href: "/skills" },
 } as const;
 
 export const ABOUT_CTA = {
   title: "See the work",
   description:
-    "[Supporting description — one sentence transitioning from professional context to the projects that demonstrate it.]",
+    "The projects below are where this background actually shows up.",
   action: { label: "View projects", href: "/projects" },
 } as const;

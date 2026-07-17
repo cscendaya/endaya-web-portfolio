@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Documents are binary: line-ending normalisation corrupts a PDF.
+*.pdf binary
