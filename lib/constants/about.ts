@@ -32,10 +32,6 @@ export const ABOUT_PROFILE = {
       heading: "Career objectives",
       body: "I am currently building a strong foundation in backend development and cybersecurity while expanding my knowledge of distributed systems, cloud technologies, and data infrastructure. As I continue to grow professionally, I aim to specialize in Data Engineering and Systems Engineering, designing secure and scalable platforms that support real-world applications.",
     },
-    {
-      heading: "About this portfolio",
-      body: "This site began as an academic requirement. I intend to keep it as a working record of what I build, and to let it grow with my career rather than end with the course.",
-    },
   ],
 } as const;
 
