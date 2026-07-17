@@ -12,11 +12,7 @@ export function MainNav() {
       <ul className="flex items-center gap-x-6">
         {NAV_ITEMS.map((item) => (
           <li key={item.href}>
-            <NavLink
-              href={item.href}
-              label={item.label}
-              className="px-1 py-2"
-            />
+            <NavLink {...item} className="px-1 py-2" />
           </li>
         ))}
       </ul>

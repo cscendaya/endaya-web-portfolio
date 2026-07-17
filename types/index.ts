@@ -3,6 +3,14 @@ import type { LucideIcon } from "lucide-react";
 export interface NavItem {
   label: string;
   href: string;
+  /**
+   * Present when the entry retrieves a file from `public` rather than moving to
+   * a page; the value is the name the browser saves it under. A downloading
+   * entry is never the current page, so it takes no active state.
+   */
+  download?: string;
+  /** Set only where the visible label is not the whole accessible name. */
+  ariaLabel?: string;
 }
 
 export interface ExternalProfile {
