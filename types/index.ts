@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 export interface NavItem {
   label: string;
   href: string;
@@ -20,6 +22,33 @@ export interface ExperienceEntry {
   organization: string;
   duration: string;
   summary: string;
+}
+
+/**
+ * One technology the author has worked with. FR-SKILL-005 forbids proficiency,
+ * so a skill carries no rating, level, or duration — only what it is and, where
+ * it helps, what it was used for.
+ */
+export interface Skill {
+  /** The technology's own name, e.g. "TypeScript". Also the list key. */
+  name: string;
+  /** Decorative mark rendered beside the name; omitted when none applies. */
+  icon?: LucideIcon;
+  /** One short line of context. Never a claim about depth of experience. */
+  description?: string;
+}
+
+/**
+ * A competency group per FR-SKILL-002. Category names are data, not code: the
+ * approved set is chosen in the constants, and the page renders whatever it is
+ * given without knowing any category by name.
+ */
+export interface SkillCategory {
+  /** Stable identity for keys and the group's heading id. */
+  id: string;
+  name: string;
+  description?: string;
+  skills: Skill[];
 }
 
 /** Optional per FR-PROJ-006/007: linked only when the resource is public. */
