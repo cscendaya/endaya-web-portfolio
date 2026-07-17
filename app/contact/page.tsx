@@ -10,6 +10,8 @@ import { CONTACT_CTA, CONTACT_HEADER } from "@/lib/constants/contact";
 
 export const metadata: Metadata = {
   title: "Contact",
+  description: CONTACT_HEADER.description,
+  openGraph: { title: "Contact", description: CONTACT_HEADER.description },
 };
 
 /**

@@ -10,6 +10,11 @@ interface ButtonProps {
   children: ReactNode;
   variant?: ButtonVariant;
   className?: string;
+  /**
+   * Suggested filename for a static asset the action saves rather than opens.
+   * Present means the destination is a file, not a route.
+   */
+  download?: string;
 }
 
 const BASE_CLASSES =
@@ -33,12 +38,32 @@ export function Button({
   children,
   variant = "primary",
   className,
+  download,
 }: ButtonProps) {
+  const classes = cn(BASE_CLASSES, VARIANT_CLASSES[variant], className);
+
+  /*
+    A file in /public is not a route, so it takes a plain anchor: `next/link`
+    would prefetch it and swallow the download. `target` lets a browser that
+    prefers viewing PDFs open it in a new tab instead of saving it, which the
+    `download` hint alone would not allow.
+  */
+  if (download) {
+    return (
+      <a
+        href={href}
+        download={download}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={cn(BASE_CLASSES, VARIANT_CLASSES[variant], className)}
-    >
+    <Link href={href} className={classes}>
       {children}
     </Link>
   );

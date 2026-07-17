@@ -1,11 +1,16 @@
+import {
+  CONTACT_EMAIL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from "@/lib/constants/contact";
 import type { ExternalProfile } from "@/types";
 
 /**
- * Footer contact placeholders. Destinations stay unset until the approved values
- * are supplied during the content phase; only structure and ordering are fixed.
+ * Footer contact links. Destinations come from the contact constants rather than
+ * being repeated, so the footer and the Contact page cannot drift apart.
  */
 export const EXTERNAL_PROFILES: ExternalProfile[] = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Email", href: "#" },
+  { label: "GitHub", href: GITHUB_URL },
+  { label: "LinkedIn", href: LINKEDIN_URL },
+  { label: "Email", href: `mailto:${CONTACT_EMAIL}` },
 ];

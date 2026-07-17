@@ -9,13 +9,13 @@ import type { Project, ProjectStatus } from "@/types";
 export const PROJECTS_HEADER = {
   title: "Projects",
   description:
-    "[Short introductory description — one or two sentences framing the selected work and what each entry demonstrates.]",
+    "Academic software projects where I led or built the server side. Each entry states what the system does and the part I was responsible for.",
 } as const;
 
 export const PROJECTS_LISTING = {
   title: "Selected projects",
   description:
-    "[Supporting description — one sentence framing the projects below.]",
+    "Security tooling, backend services, and game systems — ordered by the scope of my contribution.",
   /** Rendered when PROJECTS is empty, matching the Home preview's behaviour. */
   emptyState:
     "Project content has not been added yet. Approved projects will be presented here using the shared project card.",
@@ -35,33 +35,49 @@ export const PROJECT_STATUS_LABELS: Record<ProjectStatus, string> = {
 };
 
 /**
- * Empty until approved project content exists. Fabricated entries would read as
- * portfolio evidence, so the page renders its empty state instead.
- *
- * Each approved project is one `Project` record:
- *
- *   {
- *     slug: "inventory-service",
- *     title: "Inventory Service",
- *     summary: "…purpose, understandable without opening any link.",
- *     contribution: "…what was designed, built, and decided.",
- *     technologies: ["TypeScript", "PostgreSQL"],
- *     category: "Backend service",
- *     status: "completed",                                     // optional
- *     featured: true,                                          // optional
- *     repository: { label: "Repository", href: "https://…" },  // optional
- *     demo: { label: "Live demo", href: "https://…" },         // optional
- *   }
- *
- * `repository`, `demo`, `status`, `featured`, and `screenshot` stay omitted
- * unless the approved resource or fact exists — the card renders each only when
- * it is present.
+ * The approved Version 1 projects. `repository`, `demo`, `status`, and
+ * `screenshot` stay omitted until the resource or fact exists — the card renders
+ * each only when it is present — and the role is stated inside `contribution`
+ * rather than as a separate claim.
  */
-export const PROJECTS: Project[] = [];
+export const PROJECTS: Project[] = [
+  {
+    slug: "wifi-security-assessment-tool",
+    title: "Web-based Wi-Fi Security Assessment Tool Using Raspberry Pi",
+    summary:
+      "A web platform that runs Wi-Fi security assessments using a Raspberry Pi as the hardware probe, turning field scans into a practical auditing workflow a reviewer can act on.",
+    contribution:
+      "Technical Lead and Full Stack Developer. I led backend and frontend development, designed the database architecture, and handled the integration between the Raspberry Pi probe and the web platform so assessments ran end to end.",
+    technologies: ["Raspberry Pi"],
+    category: "Cybersecurity platform",
+    featured: true,
+  },
+  {
+    slug: "faculty-recitation-management",
+    title: "Faculty Recitation Management Mobile Application",
+    summary:
+      "A mobile application for faculty to manage recitation records, backed by REST services that keep the data consistent across devices.",
+    contribution:
+      "Backend Developer. I built the RESTful APIs and backend services, designed normalized database structures, and implemented CRUD operations, pagination, and secure server-side logic using PHP and PDO.",
+    technologies: ["PHP", "PDO", "REST API"],
+    category: "Mobile application backend",
+    featured: true,
+  },
+  {
+    slug: "bagsik-ng-malayan",
+    title: "Bagsik ng Malayan",
+    summary:
+      "A terminal-based C# game built around object-oriented gameplay systems.",
+    contribution:
+      "Backend Developer. I built the game logic and object-oriented systems behind the gameplay mechanics, structuring the code into modules so rules could be changed without rewriting the engine around them.",
+    technologies: ["C#"],
+    category: "Game development",
+  },
+];
 
 export const PROJECTS_CTA = {
   title: "Get in touch",
   description:
-    "[Supporting description — one sentence inviting discussion of the work above.]",
+    "Happy to walk through any of these — the design decisions, the trade-offs, or the parts I would build differently now.",
   action: { label: "Contact", href: "/contact" },
 } as const;

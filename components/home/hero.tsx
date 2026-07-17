@@ -12,6 +12,10 @@ export function Hero() {
     <Section id="hero">
       <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-12">
         <div className="max-w-(--container-prose)">
+          {/* Reads before the name but stays subordinate to it: the h1 is the name. */}
+          <p className="mb-2 text-base text-text-secondary">
+            {HOME_HERO.greeting}
+          </p>
           <PageHeader title={HOME_HERO.name} description={HOME_HERO.role} />
           <p className="mt-6 text-base text-text-secondary">
             {HOME_HERO.introduction}
@@ -22,6 +26,13 @@ export function Hero() {
             </Button>
             <Button href={HOME_HERO.secondaryAction.href} variant="secondary">
               {HOME_HERO.secondaryAction.label}
+            </Button>
+            <Button
+              href={HOME_HERO.resumeAction.href}
+              download={HOME_HERO.resumeAction.fileName}
+              variant="secondary"
+            >
+              {HOME_HERO.resumeAction.label}
             </Button>
           </div>
         </div>
