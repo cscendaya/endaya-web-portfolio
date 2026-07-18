@@ -9,5 +9,5 @@ import type { ExternalProfile } from "@/types";
 export const EXTERNAL_PROFILES: ExternalProfile[] = [
   { label: "GitHub", href: "https://github.com/cscendaya" },
   { label: "LinkedIn", href: "https://linkedin.com/in/carlie-shaye-endaya" },
-  { label: "Email", href: "mailto:carlieshaye.endaya@gmail.com" },
+  { label: "Email", href: "mailto:carlieendaya@gmail.com" },
 ];

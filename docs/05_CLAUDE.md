@@ -2246,3 +2246,46 @@ Each document builds upon the previous layer and must be treated as part of a si
 Implementation should extend this repository through production code only. It shall not introduce undocumented functionality, architectural changes, visual redesign, or scope expansion without first updating the appropriate planning documentation.
 
 With the completion of `05_CLAUDE.md`, the planning phase for Version 1 is complete. The project is certified as ready to transition from **implementation planning** into **development**, using the approved documentation repository as the single source of truth throughout implementation.
+
+# 46. Academic Submission Amendment — July 2026
+
+## Status
+Approved. Amends 03_PRD.md §[About page requirements] and §44 Final
+Implementation Checklist.
+
+## Rationale
+Version 1 serves a dual purpose established in 01_PROJECT_IDENTITY.md:
+academic submission and professional portfolio. The academic evaluation
+rubric requires content not captured during Phases 1–4. Where the rubric
+and prior planning artifacts conflict, academic requirements take
+precedence.
+
+## Amended scope — additive only
+The following are hereby in-scope for Version 1:
+
+- About page: Certificates section
+- About page: Seminars / Training Attended section
+- About page: Affiliations section
+- Project cards: Features list (user-facing capability), rendered above
+  the existing Engineering contribution block
+- Project cards: year / academic-year attribution
+- Capstone card: Hardware Used, presented separately from Software Used
+- Labelled chip subgroup — composed from existing h5 + TechnologyBadge list.
+  No new primitive. Capstone Software Used only: its subgroups carry the
+  probe-vs-web-tier boundary the Engineering contribution prose describes.
+  Hardware Used renders as a single flat chip list (five role labels over
+  seven items read as more heading than content); the grouped data is retained
+  as the source for the flat list but its labels are not shown.
+
+## Unchanged
+Navigation structure, Design System, page inventory, technology stack,
+and all existing prose remain as approved. No new pages. No new
+dependencies. Existing components to be reused.
+
+## Source of truth for content
+submission-assets.md. No fact outside that file may be authored.
+
+## Checklist amendment (§44, About)
+* [ ] Certificates section completed
+* [ ] Seminars section completed
+* [ ] Affiliations section completed

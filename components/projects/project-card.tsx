@@ -7,7 +7,48 @@ import {
   PROJECT_LABELS,
   PROJECT_STATUS_LABELS,
 } from "@/lib/constants/projects";
-import type { Project } from "@/types";
+import type { Project, TechnologyGroup } from "@/types";
+
+/**
+ * Labelled chip subgroups: an h5 heading over the shared TechnologyBadge list,
+ * repeated per group. Composition of existing primitives — not a new component
+ * pattern — so the heading order stays h3 (title) → h4 (section) → h5 (group).
+ */
+function ChipGroups({
+  groups,
+  baseId,
+}: {
+  groups: TechnologyGroup[];
+  baseId: string;
+}) {
+  return (
+    <div className="mt-3 flex flex-col gap-4">
+      {groups.map((group) => {
+        const groupId = `${baseId}-${group.label.toLowerCase().replace(/\s+/g, "-")}`;
+        return (
+          <div key={group.label}>
+            <h5
+              id={groupId}
+              className="text-xs font-semibold tracking-wide text-text-secondary uppercase"
+            >
+              {group.label}
+            </h5>
+            <ul
+              aria-labelledby={groupId}
+              className="mt-2 flex flex-wrap gap-2"
+            >
+              {group.items.map((item) => (
+                <li key={item}>
+                  <TechnologyBadge name={item} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 /**
  * One project, presented the same way every time: what it is, then purpose,
@@ -20,24 +61,34 @@ export function ProjectCard({
   slug,
   title,
   summary,
+  features,
   contribution,
   technologies,
+  softwareGroups,
+  hardware,
   category,
   status,
+  year,
+  academicYear,
   featured,
   repository,
   demo,
-  screenshot,
+  screenshots,
 }: Project) {
   const titleId = `${slug}-title`;
+  const featuresId = `${slug}-features`;
   const contributionId = `${slug}-contribution`;
   const technologiesId = `${slug}-technologies`;
+  const hardwareId = `${slug}-hardware`;
 
   return (
     <Card className="flex h-full w-full flex-col gap-5">
       <div>
         <div className="flex flex-wrap items-center gap-2">
           <Badge>{category}</Badge>
+          {academicYear ? (
+            <Badge>{year ? `${academicYear} · ${year}` : academicYear}</Badge>
+          ) : null}
           {status ? <Badge>{PROJECT_STATUS_LABELS[status]}</Badge> : null}
           {featured ? (
             <Badge variant="accent">{PROJECT_LABELS.featured}</Badge>
@@ -54,7 +105,38 @@ export function ProjectCard({
         </p>
       </div>
 
-      {screenshot ? <ProjectScreenshot {...screenshot} /> : null}
+      {features && features.length > 0 ? (
+        <div>
+          <h4
+            id={featuresId}
+            className="text-sm font-semibold text-text-primary"
+          >
+            {PROJECT_LABELS.features}
+          </h4>
+          <ul
+            aria-labelledby={featuresId}
+            className="mt-2 flex max-w-(--container-prose) list-disc flex-col gap-1.5 pl-5 text-base text-text-secondary"
+          >
+            {features.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
+      {screenshots && screenshots.length > 0 ? (
+        <div
+          className={
+            screenshots.length > 1
+              ? "grid gap-3 sm:grid-cols-2"
+              : undefined
+          }
+        >
+          {screenshots.map((shot) => (
+            <ProjectScreenshot key={shot.src} {...shot} />
+          ))}
+        </div>
+      ) : null}
 
       <div>
         <h4
@@ -73,19 +155,48 @@ export function ProjectCard({
           id={technologiesId}
           className="text-sm font-semibold text-text-primary"
         >
-          {PROJECT_LABELS.technologies}
+          {hardware ? PROJECT_LABELS.software : PROJECT_LABELS.technologies}
         </h4>
-        <ul
-          aria-labelledby={technologiesId}
-          className="mt-2 flex flex-wrap gap-2"
-        >
-          {technologies.map((technology) => (
-            <li key={technology}>
-              <TechnologyBadge name={technology} />
-            </li>
-          ))}
-        </ul>
+        {softwareGroups && softwareGroups.length > 0 ? (
+          <ChipGroups groups={softwareGroups} baseId={technologiesId} />
+        ) : (
+          <ul
+            aria-labelledby={technologiesId}
+            className="mt-2 flex flex-wrap gap-2"
+          >
+            {technologies.map((technology) => (
+              <li key={technology}>
+                <TechnologyBadge name={technology} />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
+
+      {hardware && hardware.length > 0 ? (
+        <div>
+          <h4
+            id={hardwareId}
+            className="text-sm font-semibold text-text-primary"
+          >
+            {PROJECT_LABELS.hardware}
+          </h4>
+          {/* Flat chip list, not subgroups: seven items across five roles is
+              more heading than content. Software Used keeps its subgroups
+              because they carry the probe-vs-web-tier boundary the contribution
+              prose describes; hardware has no such split to preserve. */}
+          <ul
+            aria-labelledby={hardwareId}
+            className="mt-2 flex flex-wrap gap-2"
+          >
+            {hardware.map((item) => (
+              <li key={item}>
+                <TechnologyBadge name={item} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
 
       {repository || demo ? (
         <ul className="mt-auto flex flex-wrap gap-x-6 gap-y-2">

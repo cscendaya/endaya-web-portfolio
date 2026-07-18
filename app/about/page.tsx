@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 
 import { AcademicExperience } from "@/components/about/academic-experience";
+import { Affiliations } from "@/components/about/affiliations";
+import { Certificates } from "@/components/about/certificates";
 import { Education } from "@/components/about/education";
 import { Experience } from "@/components/about/experience";
 import { ProfessionalProfile } from "@/components/about/professional-profile";
+import { Seminars } from "@/components/about/seminars";
 import { TechnologiesOverview } from "@/components/about/technologies-overview";
 import { PageWrapper } from "@/components/layout/page-wrapper";
 import { CtaSection } from "@/components/ui/cta-section";
@@ -31,6 +34,9 @@ export default function AboutPage() {
       <Experience />
       <AcademicExperience />
       <Education />
+      <Certificates />
+      <Seminars />
+      <Affiliations />
       <TechnologiesOverview />
       <CtaSection
         id="projects-cta"

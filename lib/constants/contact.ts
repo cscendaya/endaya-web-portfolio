@@ -43,8 +43,8 @@ export const CONTACT_METHODS: ContactMethod[] = [
     icon: Mail,
     description:
       "Best for opportunities, technical questions, and anything needing a considered reply.",
-    linkLabel: "carlieshaye.endaya@gmail.com",
-    href: "mailto:carlieshaye.endaya@gmail.com",
+    linkLabel: "carlieendaya@gmail.com",
+    href: "mailto:carlieendaya@gmail.com",
     external: false,
   },
   {

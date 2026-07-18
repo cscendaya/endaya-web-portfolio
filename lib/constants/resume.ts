@@ -14,8 +14,8 @@ export const RESUME = {
   fileName: "Carlie_Endaya_Resume.pdf",
   /** Visible label for the hero button and the footer link. */
   label: "Download CV",
-  /** Visible label in the global navigation, where space is tighter. */
-  navLabel: "Resume",
+  /** Visible label in the global navigation. Names the format — it downloads a file, not a page. */
+  navLabel: "Resume (PDF)",
   /**
    * Names the link for screen readers. The visible labels omit the format, which
    * a visitor needs before committing to a download.

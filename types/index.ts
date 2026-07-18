@@ -25,11 +25,36 @@ export interface EducationEntry {
   description?: string;
 }
 
+/** One certification the author holds. No proficiency or grade beyond what the credential itself states. */
+export interface CertificateEntry {
+  name: string;
+  issuer: string;
+  year: string;
+}
+
+/** One seminar or training session attended. */
+export interface SeminarEntry {
+  title: string;
+  speaker: string;
+  date: string;
+}
+
+/** One professional affiliation. `membership` carries the standing, e.g. "Member since 2026". */
+export interface AffiliationEntry {
+  name: string;
+  membership: string;
+}
+
 export interface ExperienceEntry {
   role: string;
   organization: string;
   duration: string;
-  summary: string;
+  /** Single-paragraph detail. Present unless the role is detailed as function groups. */
+  summary?: string;
+  /** Short lead line before function-grouped detail, e.g. the team assignment. */
+  intro?: string;
+  /** A role broken out by function, each group surfacing its own facts. */
+  functionGroups?: { label: string; detail: string }[];
 }
 
 /**
@@ -59,6 +84,16 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
+/**
+ * A labelled subset of chips within a Software/Hardware block, e.g. "Probe".
+ * Presentation only: the flat `technologies`/`hardware` arrays stay the source
+ * of truth for the portfolio technology index.
+ */
+export interface TechnologyGroup {
+  label: string;
+  items: string[];
+}
+
 /** Optional per FR-PROJ-006/007: linked only when the resource is public. */
 export interface ProjectResource {
   label: string;
@@ -85,16 +120,29 @@ export interface Project {
   summary: string;
   /** FR-PROJ-005: what the author actually built. */
   contribution: string;
+  /** User-facing capability, rendered above the engineering contribution. */
+  features?: string[];
   /** FR-PROJ-004: primary technologies only, not an exhaustive list. */
   technologies: string[];
+  /** Optional labelled grouping of `technologies` for display; the flat array stays authoritative. */
+  softwareGroups?: TechnologyGroup[];
+  /** Capstone hardware. When present, the card labels technologies "Software Used" and adds a "Hardware Used" block. */
+  hardware?: string[];
+  /** Optional labelled grouping of `hardware` for display; the flat array stays authoritative. */
+  hardwareGroups?: TechnologyGroup[];
   /** Groups the project against the approved categories, e.g. "Web application". */
   category: string;
   status?: ProjectStatus;
+  /** Calendar date the work was done, e.g. "Jan 2022". Presentation only. */
+  year?: string;
+  /** Academic-year tag, e.g. "Year 1". Independent of list ordering. */
+  academicYear?: string;
   /** Marks the project for the Home preview; on Projects it only adds a badge. */
   featured?: boolean;
   repository?: ProjectResource;
   demo?: ProjectResource;
-  screenshot?: ProjectScreenshotAsset;
+  /** Approved screenshots. One per project; the capstone is the only card with two. */
+  screenshots?: ProjectScreenshotAsset[];
 }
 
 /**
