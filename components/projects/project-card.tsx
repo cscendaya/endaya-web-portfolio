@@ -128,7 +128,7 @@ export function ProjectCard({
         <div
           className={
             screenshots.length > 1
-              ? "grid gap-3 sm:grid-cols-2"
+              ? "grid items-start gap-3 sm:grid-cols-2"
               : undefined
           }
         >

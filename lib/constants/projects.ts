@@ -110,10 +110,14 @@ export const PROJECTS: Project[] = [
       {
         src: "/images/whypii-dashboard.png",
         alt: "Why-Pii dashboard: overall Wi-Fi security risk score, a severity breakdown chart, and a table of the highest-risk assessed networks.",
+        width: 1232,
+        height: 667,
       },
       {
         src: "/images/whypii-captiveportal.jpg",
         alt: "Why-Pii captive portal shown when joining a network, displaying its estimated risk score and a plain-language warning about the weakness found.",
+        width: 955,
+        height: 2048,
       },
     ],
     category: "Capstone project",
@@ -146,6 +150,8 @@ export const PROJECTS: Project[] = [
       {
         src: "/images/REASECITE-setround.png",
         alt: "R-EaseCite Set Round screen: selecting subject and section, then setting participants, score range, and time limit before starting a recitation.",
+        width: 376,
+        height: 796,
       },
     ],
     category: "Backend service",
@@ -214,6 +220,8 @@ export const PROJECTS: Project[] = [
       {
         src: "/images/careby-homepage.jpg",
         alt: "Careby home page showing a patient's upcoming therapy appointment with controls to start the session or book a new one.",
+        width: 1935,
+        height: 1080,
       },
     ],
     category: "Web application",

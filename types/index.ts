@@ -104,6 +104,11 @@ export interface ProjectScreenshotAsset {
   src: string;
   /** Describes the work shown, never "screenshot of X". */
   alt: string;
+  /** Intrinsic pixel dimensions. Set next/image's aspect (so no layout shift)
+   *  and are the sole orientation signal: height > width renders as portrait,
+   *  height-capped and centred, rather than filling the card width. */
+  width: number;
+  height: number;
 }
 
 /**
